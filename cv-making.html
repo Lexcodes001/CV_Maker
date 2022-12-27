@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/landing-page.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/cv.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>cVMaking</title>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="left-item">
+            <img title = "Menu" onclick = "openBtn(this)" class="logo" src="images/bars-icon.svg" alt="">
+            <h1 class="TM"><span class="blue">CV</span> MAKER</h1>
+        </div>
+        
+        <div class="right-item">
+            <div class="icons tn">
+                <div class="icon"><a title="Link to my FB profile" href="http://www.facebook.com/profile.php?id=100022105650659" target="_blank" rel="noopener"><i class="uil uil-facebook-f"></i></a></div>
+                <div class="icon"><a title="Link to my WhatsApp DM" href="https://wa.link/mdtpxd" target="_blank" rel="noopener"><i class="uil uil-whatsapp"></i></a></div>
+                <div class="icon"><a title="Link to Github profile" href="http://github.com/Lexcodes001" target="_blank" rel="noopener"><i class="uil uil-github"></i></a></div>
+                <div class="icon"><a title="Download project source code" href="https://drive.google.com/file/d/1oOhvcURV00ZVmKKBwN81FKjomfT3SbcD/view?usp=sharing" target="_blank" rel="noopener"><i class="uil uil-folder-download"></i></a></div>
+            </div>
+            
+            <div>
+                <input type="checkbox" name="toggle" id="toggle">
+                <label title="Toggle between Themes" for="toggle" class="button" id="button"></label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tooltip">
+        <p>Click here for quick navigation</p>
+    </div>
+    
+    <div class="hidden-nav">
+        <div class="items" title="Home"><p><a href="index.html">Home</a></p></div>
+        <div class="items" title="Make a CV"><p><a href="cv-making.html">Make a CV</a></p></div>
+        <!--<div class="items" title="Recently made RESUMÉ"><p><a href="cv-making.html">Recents</a></p></div> -->
+        <div class="ffw-item">
+            <div class="first">
+                <p>Follow me!</p>
+                <div class="icons">
+                <div class="icon"><a title="Link to my FB profile" href="http://www.facebook.com/profile.php?id=100022105650659" target="_blank" rel="noopener"><i class="uil uil-facebook-f"></i></a></div>
+                <div class="icon"><a title="Link to my WhatsApp DM" href="https://wa.link/mdtpxd" target="_blank" rel="noopener"><i class="uil uil-whatsapp"></i></a></div>
+                <div class="icon"><a title="Link to Github profile" href="http://github.com/Lexcodes001" target="_blank" rel="noopener"><i class="uil uil-github"></i></a></div>
+            </div>
+            </div>
+            <div class="second">
+                <p>Source Code</p>
+                <div class="icons">
+                    <div class="icon"><a title="Download project source code" href="https://drive.google.com/file/d/1oOhvcURV00ZVmKKBwN81FKjomfT3SbcD/view?usp=sharing" target="_blank" rel="noopener"><i class="uil uil-folder-download"></i></a></div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="body-content">
+        <div class="popup-box">
+                    <header>
+                        <p>CV Details</p>
+                    </header>
+                    <form action="#">
+                        <div class="title">
+                            <label>Title</label>
+                            <input class="" type="text" id="title" spellcheck="false" placeholder="CV Title, e.g:'My First Resume'" required>
+                            <p class="err"></p>
+                        </div>
+                        <div class="group user-details">
+                            <fieldset>
+                                <legend>Personalia</legend>
+                                <div class="row">
+                                    <input type="text" name="first-name" id="firstName" placeholder="First Name"  required>
+                                    <p class="err"></p>
+                                    <input type="text" name="last-name" id="lastName" placeholder="Last Name" required>
+                                    <p class="err"></p>
+                                    <input type="text" name="profession" id="profession" placeholder="Profession e.g,'Designer' etc." required>
+                                    <p class="err"></p>
+                                    <textarea type="text" name="about" id="about" class="textarea" placeholder="Write about yourself..." required></textarea>
+                                    <p class="err"></p>
+                                </div>
+                            </fieldset>
+        
+                            <fieldset>
+                                <legend>Contact Info.</legend>
+                                <div class="row">
+                                    <textarea type="text" name="address" id="address" class="textarea" placeholder="Write your home address here..." required></textarea>
+                                    <p class="err"></p>
+                                    <input type="tel" name="number" id="number" placeholder="Phone or WhatsApp no." required>
+                                    <p class="err"></p>
+                                    <input type="email" name="mail" id="mail" placeholder="Your Email Address" required>
+                                    <p class="err"></p>
+                                    <input type="url" name="website" id="website" placeholder="Your Website">
+                                    <p class="err"></p>
+                                    <input type="url" name="linkedIn" id="linkedIn" placeholder="Link to your LinkedIn Profile">
+                                    <p class="err"></p>
+                                </div>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <legend>Work Experience</legend>
+                                <div class="group">
+                                    <select name="exprNo" id="exprNo">
+                                        <option value="">Number of Work Experience had</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <div class="row">
+                                        <fieldset class="expr1">
+                                            <legend>First Work Experience</legend>
+                                            <div class="row">
+                                                <input type="text" name="yearRange1" id="yearRange1" placeholder="Year Range e.g,'1990-Present'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="job1" id="job1" placeholder="Name of Job" required>
+                                                <p class="err"></p>
+                                                <textarea class="textarea" type="text" name="abtJob1" id="abtJob1" placeholder="Brief Description of Job" required></textarea>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="expr2">
+                                            <legend>Second Work Experience</legend>
+                                            <div class="row">
+                                                <input type="text" name="yearRange2" id="yearRange2" placeholder="Year Range e.g,'1990-1994'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="job2" id="job2" placeholder="Name of Job" required>
+                                                <p class="err"></p>
+                                                <textarea class="textarea" type="text" name="abtJob2" id="abtJob2" placeholder="Brief Description of Job" required></textarea>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="expr3">
+                                            <legend>Third Work Experience</legend>
+                                            <div class="row">
+                                                <input type="text" name="yearRange3" id="yearRange3" placeholder="Year Range e.g,'1990-1994'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="job3" id="job3" placeholder="Name of Job" required>
+                                                <p class="err"></p>
+                                                <textarea class="textarea" type="text" name="abtJob3" id="abtJob3" placeholder="Brief Description of Job" required></textarea>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </fieldset>
+        
+                            <fieldset>
+                                <legend>Education</legend>
+                                <div class="group">
+                                    <select name="degNo" id="degNo">
+                                        <option value="">Number of Degrees obtained</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <div class="row">
+                                        <fieldset class="deg1">
+                                            <legend>First Degree</legend>
+                                            <div class="row">
+                                                <input type="text" name="timeRange1" id="timeRange1" placeholder="Year Range e.g,'1990-1994'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="degNdCourse1" id="degNdCourse1" placeholder="Degree & Course e.g,'B.sc in Engineering'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="inst1" id="inst1" placeholder="Name of institution" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="deg2">
+                                            <legend>Second Degree</legend>
+                                            <div class="row">
+                                                <input type="text" name="timeRange2" id="timeRange2" placeholder="Year Range e.g,'1990-1994'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="degNdCourse2" id="degNdCourse2" placeholder="Degree & Course e.g,'B.sc in English Lang.'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="inst2" id="inst2" placeholder="Name of institution" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="deg3">
+                                            <legend>Third Degree</legend>
+                                            <div class="row">
+                                                <input type="text" name="timeRange3" id="timeRange3" placeholder="Year Range e.g,'1990-1994'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="degNdCourse3" id="degNdCourse3" placeholder="Degree & Course e.g,'PhD in Computer Science'" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="inst3" id="inst3" placeholder="Name of institution" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <legend>Skills</legend>
+                                <div class="group">
+                                    <select name="skillsNo" id="skillsNo">
+                                        <option value="">Number of Skills learnt</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                    <div class="row">
+                                        <fieldset class="skill1">
+                                            <legend>First Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName1" id="skillName1" placeholder="Name of Skill,e.g 'Git/Github'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate1" id="skillRate1" min="1" max="100" step="10" placeholder="Skill Rating (1-100)" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="skill2">
+                                            <legend>Second Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName2" id="skillName2" placeholder="Name of Skill,e.g 'CSS'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate2" id="skillRate2" min="1" max="100" step="10" placeholder="Skill Rating (1-100)" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="skill3">
+                                            <legend>Third Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName3" id="skillName3" placeholder="Name of Skill,e.g 'Javascript'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate3" id="skillRate3" min="1" max="100" step="10" placeholder="Skill Rating (1-100)" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="skill4">
+                                            <legend>Fourth Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName4" id="skillName4" placeholder="Name of Skill,e.g 'HTML5'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate4" id="skillRate4" min="1" max="100" step="10" placeholder="Skill Rating (1-100))" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="skill5">
+                                            <legend>Fifth Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName5" id="skillName5" placeholder="Name of Skill,e.g 'Illustrator'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate5" id="skillRate5" min="1" max="100" step="10" placeholder="Skill Rating (1-100)" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="skill6">
+                                            <legend>Sixth Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName6" id="skillName6" placeholder="Name of Skill,e.g 'Photoshop'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate6" id="skillRate6" min="1" max="100" step="10" placeholder="Skill Rating (1-100)" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="skill7">
+                                            <legend>Seventh Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName7" id="skillName7" placeholder="Name of Skill,e.g 'Baking'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate7" id="skillRate7" min="1" max="100" step="10" placeholder="Skill Rating (1-100)" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="skill8">
+                                            <legend>Eighth Skill</legend>
+                                            <div class="row">
+                                                <input type="text" name="skillName8" id="skillName8" placeholder="Name of Skill,e.g 'Photoshop'" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="skillRate8" id="skillRate8" min="1" max="100" step="10" placeholder="Skill Rating (1-100))" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <legend>References</legend>
+                                <div class="group">
+                                    <select name="refNo" id="refNo">
+                                        <option value="">Number of Referrals</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <div class="row">
+                                        <fieldset class="ref1">
+                                            <legend>First Referral</legend>
+                                            <div class="row">
+                                                <input type="text" name="refName1" id="refName1" placeholder="Referral Name" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="refPost1" id="refPost1" placeholder="Referral Profession" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="refTel1" id="refTel1" placeholder="Referral Phone No." required>
+                                                <p class="err"></p>
+                                                <input type="email" name="refMail1" id="refMail1" placeholder="Referral Email Address" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="ref2">
+                                            <legend>Second Referral</legend>
+                                            <div class="row">
+                                                <input type="text" name="refName2" id="refName2" placeholder="Referral Name" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="refPost2" id="refPost2" placeholder="Referral Profession" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="refTel2" id="refTel2" placeholder="Referral Phone No." required>
+                                                <p class="err"></p>
+                                                <input type="email" name="refMail2" id="refMail2" placeholder="Referral Email Address" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <fieldset class="ref3">
+                                            <legend>Third Referral</legend>
+                                            <div class="row">
+                                                <input type="text" name="refName3" id="refName3" placeholder="Referral Name" required>
+                                                <p class="err"></p>
+                                                <input type="text" name="refPost3" id="refPost3" placeholder="Referral Profession" required>
+                                                <p class="err"></p>
+                                                <input type="number" name="refTel3" id="refTel3" placeholder="Referral Phone No." required>
+                                                <p class="err"></p>
+                                                <input type="email" name="refMail3" id="refMail3" placeholder="Referral Email Address" required>
+                                                <p class="err"></p>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <input class="bttn" type="button">
+                    </form>
+        </div>
+
+        <div class="popup-preview-box">
+            <div class="box">
+                <div class="top-box">
+                    <i class="uil uil-arrow-left"></i>
+                    <h2></h2>
+                </div>
+                <div class="cv-cont"></div>
+                <div class="btn-box">
+                    <button>PNG</button>
+                    <button>PDF</button>
+                    <div class="btn-key">
+                        <i class="uil uil-download-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!--<div class="btn-menu-img">
+                <div class="filename">
+                    <label>Filename:</label>
+                    <input type="text" placeholder="" oninput="fileName = this.value">
+                </div>
+              
+                <div class="quality">
+                    <p>Quality:</p>
+                    <div class="btns">
+                        <button>4</button>
+                        <button>6</button>
+                        <button>8</button>
+                        <button>10</button>
+                    </div>
+                </div>
+              
+                <div class="format">
+                    <p>Format:</p>
+                    <div class="btns">
+                        <button>png</button>
+                        <button>jpg</button>
+                        <button>jpeg</button>
+                    </div>
+                </div>
+              
+                <button class="img-btn" onclick="downloadImg()">Download</button>
+            </div>
+            <div class="btn-menu-pdf">qjajJJJsiajsjejsndnsh</div>-->
+        </div>
+    </div>
+    
+    <script src="js/landingPage.js"></script>
+    <script src="js/cvMaking.js"></script>
+    <script src="js/capturer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

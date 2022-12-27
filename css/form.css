@@ -1,0 +1,343 @@
+.hidden-nav{
+    margin-top: 3rem;
+}
+
+.body-content{
+    padding: 2rem 1.5rem;
+}
+
+.popup-box{
+    display: block;
+}
+
+.popup-preview-box{
+    display: none;
+}
+
+.popup-box, .popup-preview-box{
+    width: 100%;
+    background-color: var(--bg1);
+    transition: all .5s ease;
+}
+
+.popup-box.hide{
+    display: none;
+}
+
+.popup-preview-box.disp{
+    display: flex;
+}
+
+.popup-preview-box i{
+    color: var(--black);
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.popup-box header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.err{
+    display: none;
+    width: fit-content;
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    position: relative;
+    left: 0;
+    bottom: 20px;
+    border-radius: 0 .3rem .3rem .3rem;
+    z-index: 99;
+    background-color: var(--err-bg);
+    color: var(--err-txt);
+    /*transform: scale(0);
+    transform-origin: top left;
+    transition: transform .5s ease-out;*/
+}
+
+.err::after{
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 1rem;
+    border-width: .5rem;
+    border-style: solid;
+    border-color: transparent transparent var(--err-bg) transparent;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .8rem;
+}
+
+.title input{
+    width: 100%;
+}
+
+.title label{
+    font-size: 1rem  !important;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.group{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.row{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+header p, .title label, .popup-preview-box h2{
+    font-size: 2rem;
+    padding: .3rem .7rem;
+    color: var(--black);
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: none;
+    border-bottom: none;
+    border-radius: .3rem;
+    background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
+}
+
+fieldset{
+    width: 100%;
+    border-radius: .2rem;
+    border: 2px solid var(--bg3);
+}
+
+legend{
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: none;
+    border-bottom: none;
+    border-radius: .2rem;
+    padding: .2rem .5rem;
+    color: var(--black);
+    background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
+}
+
+input, textarea{
+    font-size: 1rem;
+    font-family: Montserrat, sans-serif;
+    padding-left: .8rem;
+    padding-right: .8rem;
+    background: none;
+    outline: none;
+    border: 1px solid var(--bg3);
+    border-radius: .2rem;
+    width: auto;
+    height: 3rem;
+    color: var(--black);
+}
+
+input:focus, textarea:focus{
+    box-shadow: .2rem .2rem 0 var(--black);
+    transform: translate(-.2rem, -.2rem);
+}
+
+::placeholder{
+    font-size: .9rem;
+    font-family: Montserrat, sans-serif;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
+select{
+    font-size: .7rem;
+    width: 100%;
+    color: var(--bg4);
+    background: none;
+    outline: none;
+    border-radius: .2rem;
+    font-family: Montserrat, sans-serif;
+}
+
+select option{
+    color: #000;
+}
+
+.expr1, .expr2, .expr3, .deg1, .deg2, .deg3, .skill1, .skill2, .skill3, .skill4, .skill5, .skill6, .skill7, .skill8, .ref1, .ref2, .ref3{
+    display: none;
+}
+
+textarea{
+    width: 100%;
+    height: 10rem;
+    padding: .8rem;
+    resize: none;
+}
+
+#skillRate1, #skillRate2, #skillRate3, #skillRate4, #skillRate5, #skillRate6, #skillRate7, #skillRate8{
+    width: auto;
+}
+
+.bttn{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.bttn, .popup-preview-box button{
+    cursor: pointer;
+    width: auto;
+    padding: .5rem 1rem;
+    color: var(--black);
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: none;
+    border-bottom: none;
+    border-radius: .5rem;
+    font-family: Montserrat, sans-serif;
+    background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
+    transition: all .3s ease;
+}
+
+.bttn:active, .popup-preview-box button:active{
+    transform: scale(0.9);
+    background-image: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
+}
+
+.popup-preview-box{
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-preview-box .top-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.top-box i{
+    cursor: pointer;
+}
+
+.popup-preview-box .cv-cont{
+    padding: 0;
+    width: auto;
+    max-width: 350px;
+}
+
+.popup-preview-box .btn-box{
+    position: fixed;
+    bottom: 15px;
+    right: 5px;
+    z-index: 19;
+    /*justify-content: space-evenly;
+    align-items: center;*/
+}
+
+.btn-key{
+    cursor: pointer;
+    position: relative;
+    bottom: 5px;
+    right: 5px;
+    z-index: 99;
+    padding: 1rem;
+    border-radius: 50%;
+    background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2),
+                2px 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-key:active{
+    color: var(--black);
+    transform: scale(0.9);
+    background-image: linear-gradient(135deg, var(--blue) 0%, var(--light-blue) 100%);
+}
+
+.btn-box button{
+    color: var(--black);
+    font-size: .7rem;
+    position: absolute;
+    right: 16px;
+    padding: .6rem .4rem;
+    border-radius: 50%;
+    background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
+    transition: all ease-out .3s;
+}
+
+.btn-box button:nth-child(1){
+    top: -2px;
+}
+
+.btn-box button:nth-child(2){
+    top: -2px;
+}
+
+.btn-box button:nth-child(1).disp{
+    top: -6.5rem;
+}
+
+.btn-box button:nth-child(2).disp{
+    top: -3.8rem;
+}
+
+@keyframes ryt2left{
+    0% {
+        transform: translateX(200px);
+    }
+    100% {
+        transform: translateX(-160px);
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    fieldset{
+        width: fit-content;
+        flex: 50;
+    }
+
+    fieldset .row{
+        width: 100%;
+        flex-flow: column nowrap;
+        justify-content: stretch;
+        align-items: stretch;
+    }
+
+    .row fieldset{
+        width: 100%;
+    }
+
+    .group{
+        flex-flow: row wrap;
+        justify-content: stretch;
+    }
+
+    .bttn{
+        width: fit-content;
+    }
+    
+    .popup-preview-box .cv-cont{
+        min-width: 450px;
+        width: auto;
+        max-width: 530px;
+    }
+
+    .btn-key{
+        bottom: 15px;
+        right: 20px;
+    }
+
+    .btn-box button{
+        right: 33px;
+    }
+}
