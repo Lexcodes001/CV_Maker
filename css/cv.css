@@ -12,9 +12,8 @@
 
 .cv-box{
     font-family: 'Raleway';
-    width: auto;
-    max-width: 550px;
-    height: auto;
+    width: 100%;
+    height: 400px;
     background-color: var(--bg);
 }
 

@@ -233,7 +233,7 @@ textarea{
 .popup-preview-box .cv-cont{
     padding: 0;
     width: auto;
-    max-width: 350px;
+    height: auto;
 }
 
 .popup-preview-box .btn-box{
@@ -268,7 +268,7 @@ textarea{
     color: var(--black);
     font-size: .7rem;
     position: absolute;
-    right: 16px;
+    right: 18px;
     padding: .6rem .4rem;
     border-radius: 50%;
     background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
@@ -327,9 +327,9 @@ textarea{
     }
     
     .popup-preview-box .cv-cont{
-        min-width: 450px;
+        padding: 0;
         width: auto;
-        max-width: 530px;
+        height: auto;
     }
 
     .btn-key{

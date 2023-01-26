@@ -34,21 +34,27 @@ const contactItems = document.querySelectorAll('.contact .item'),
     skillBox = document.querySelectorAll('.skills .box'),
     ref = document.querySelector('.ref'),
     refBox = document.querySelectorAll('.ref .box');
+    
+function enableBtn() {
+  genCvBtn.style.pointerEvents = 'auto';
+  genCvBtn.style.opacity = '1';
+}
 
-//allInputs.setAttribute('required');
+function disableBtn() {
+  genCvBtn.style.pointerEvents = 'none';
+  genCvBtn.style.opacity = '0.5';
+}
 
 for (let i = 0; i < allInputs.length; i++) {
     allInputs[i].addEventListener('keyup', function() {
         if (allInputs[i].value == '' || allInputs[i].value == null) {
             allInputs[i].nextElementSibling.style.display = 'block';
             allInputs[i].nextElementSibling.innerHTML = 'Please fill out this field🥺';
-            genCvBtn.style.pointerEvents = 'none';
-            genCvBtn.style.opacity = '0.5';
+            disableBtn();
         } else{
             allInputs[i].nextElementSibling.style.display = 'none';
             allInputs[i].nextElementSibling.innerHTML = '';
-            genCvBtn.style.pointerEvents = 'auto';
-            genCvBtn.style.opacity = '1';
+            enableBtn();
         }
     });
     
@@ -59,13 +65,11 @@ for (let i = 0; i < allTextareas.length; i++) {
         if (allTextareas[i].value == '' || allTextareas[i].value == null) {
             allTextareas[i].nextElementSibling.style.display = 'block';
             allTextareas[i].nextElementSibling.innerHTML = 'Please fill out this field🥺';
-            genCvBtn.style.pointerEvents = 'none';
-            genCvBtn.style.opacity = '0.5';
+            disableBtn();
         } else{
             allTextareas[i].nextElementSibling.style.display = 'none';
             allTextareas[i].nextElementSibling.innerHTML = '';
-            genCvBtn.style.pointerEvents = 'auto';
-            genCvBtn.style.opacity = '1';
+            enableBtn();
         }
     });
     
@@ -88,6 +92,7 @@ exprSel.addEventListener('change', () => {
         expr1.style.display = 'none';
         expr2.style.display = 'none';
         expr3.style.display = 'none';
+        cvSect[1].style.display = 'none';
     } else {
         return;
     }
@@ -110,6 +115,7 @@ eduSel.addEventListener('change', () => {
         degOne.style.display = 'none';
         degTwo.style.display = 'none';
         degThree.style.display = 'none';
+        cvSect[2].style.display = 'none';
     } else{
         return;
     }
@@ -126,8 +132,8 @@ skillSel.addEventListener('change', () => {
         skill7.style.display = 'none';
         skill8.style.display = 'none';
     } else if (skillSel.value === '2') {
-        skill1.style.display = 'flex';
-        skill2.style.display = 'flex';
+        skill1.style.display = 'block';
+        skill2.style.display = 'block';
         skill3.style.display = 'none';
         skill4.style.display = 'none';
         skill5.style.display = 'none';
@@ -197,6 +203,7 @@ skillSel.addEventListener('change', () => {
         skill6.style.display = 'none';
         skill7.style.display = 'none';
         skill8.style.display = 'none';
+        cvSect[3].style.display = 'none';
     } else{
         return;
     }
@@ -219,6 +226,7 @@ refSel.addEventListener('change', () => {
         ref1.style.display = 'none';
         ref2.style.display = 'none';
         ref3.style.display = 'none';
+        cvSect[4].style.display = 'none';
     } else{
         return;
     }
@@ -546,6 +554,24 @@ genCvBtn.addEventListener("click", e => {
     }
     
     cvContainer.innerHTML = cV;
+    
+    let cvSect = document.querySelectorAll('.sect');
+    
+    if (exprSel.value === '') {
+      cvSect[1].style.display = 'none';
+    }
+    
+    if (eduSel.value === '') {
+      cvSect[2].style.display = 'none';
+    }
+    
+    if (skillSel.value === '') {
+      cvSect[3].style.display = 'none';
+    }
+    
+    if (refSel.value === '') {
+      cvSect[4].style.display = 'none';
+    }
 
     function closeBtns() {
         btnKey.click();
@@ -558,138 +584,7 @@ genCvBtn.addEventListener("click", e => {
     
     setTimeout(showBtns, 2000);
 
-        
-        if (website === '') {
-            contactItems[2].style.display = 'none';
-        }
-        
-        if (linkedIn === '') {
-            contactItems[3].style.display = 'none';
-            alert('SUCCESS!');
-        }
-        
-        if (exprSel.value === '1') {
-            exprBox[0].style.display = 'flex';
-            exprBox[1].style.display = 'none';
-            exprBox[2].style.display = 'none';
-        } else if (exprSel.value === '2') {
-            exprBox[0].style.display = 'flex';
-            exprBox[1].style.display = 'flex';
-            exprBox[2].style.display = 'none';
-        } else if (exprSel.value === '3') {
-            exprBox.style.display = 'flex';
-        } else if (exprSel.value === '') {
-            expr.style.display = 'none';
-        } else {
-            return;
-        }
-        
-        if (eduSel.value === '1') {
-            eduBox[0].style.display = 'flex';
-            eduBox[1].style.display = 'none';
-            eduBox[2].style.display = 'none';
-        } else if (eduSel.value === '2') {
-            eduBox[0].style.display = 'flex';
-            eduBox[1].style.display = 'flex';
-            eduBox[2].style.display = 'none';
-        } else if (eduSel.value === '3') {
-            eduBox.style.display = 'flex';
-        } else if (eduSel.value === '') {
-            edu.style.display = 'none';
-        } else{
-            return;
-        }
-        
-        if (refSel.value === '1') {
-            refBox[0].style.display = 'flex';
-            refBox[1].style.display = 'none';
-            refBox[2].style.display = 'none';
-        } else if (refSel.value === '2') {
-            refBox[0].style.display = 'flex';
-            refBox[1].style.display = 'flex';
-            refBox[2].style.display = 'none';
-        } else if (refSel.value === '3') {
-            refBox[0].style.display = 'flex';
-            refBox[1].style.display = 'flex';
-            refBox[2].style.display = 'flex';
-        } else if (refSel.value === '') {
-            ref.style.display = 'none';
-        } else {
-            return;
-        }
-        
-        if (skillSel.value === '1') {
-            skillBox[0].style.display = 'flex';
-            skillBox[1].style.display = 'none';
-            skillBox[2].style.display = 'none';
-            skillBox[3].style.display = 'none';
-            skillBox[4].style.display = 'none';
-            skillBox[5].style.display = 'none';
-            skillBox[6].style.display = 'none';
-            skillBox[7].style.display = 'none';
-            
-        } else if (skillSel.value === '2') {
-            skillBox[0].style.display = 'flex';
-            skillBox[1].style.display = 'flex';
-            skillBox[2].style.display = 'none';
-            skillBox[3].style.display = 'none';
-            skillBox[4].style.display = 'none';
-            skillBox[5].style.display = 'none';
-            skillBox[6].style.display = 'none';
-            skillBox[7].style.display = 'none';
-        } else if (skillSel.value === '3') {
-            skillBox[0].style.display = 'flex';
-            skillBox[1].style.display = 'flex';
-            skillBox[2].style.display = 'flex';
-            skillBox[3].style.display = 'none';
-            skillBox[4].style.display = 'none';
-            skillBox[5].style.display = 'none';
-            skillBox[6].style.display = 'none';
-            skillBox[7].style.display = 'none';
-        } else if (skillSel.value === '4') {
-            skillBox[0].style.display = 'flex';
-            skillBox[1].style.display = 'flex';
-            skillBox[2].style.display = 'flex';
-            skillBox[3].style.display = 'flex';
-            skillBox[4].style.display = 'none';
-            skillBox[5].style.display = 'none';
-            skillBox[6].style.display = 'none';
-            skillBox[7].style.display = 'none';
-        } else if (skillSel.value === '5') {
-            skillBox[0].style.display = 'flex';
-            skillBox[1].style.display = 'flex';
-            skillBox[2].style.display = 'flex';
-            skillBox[3].style.display = 'flex';
-            skillBox[4].style.display = 'flex';
-            skillBox[5].style.display = 'none';
-            skillBox[6].style.display = 'none';
-            skillBox[7].style.display = 'none';
-        } else if (skillSel.value === '6') {
-            skillBox[0].style.display = 'flex';
-            skillBox[1].style.display = 'flex';
-            skillBox[2].style.display = 'flex';
-            skillBox[3].style.display = 'flex';
-            skillBox[4].style.display = 'flex';
-            skillBox[5].style.display = 'flex';
-            skillBox[6].style.display = 'none';
-            skillBox[7].style.display = 'none';
-        } else if (skillSel.value === '7') {
-            skillBox[0].style.display = 'flex';
-            skillBox[1].style.display = 'flex';
-            skillBox[2].style.display = 'flex';
-            skillBox[3].style.display = 'flex';
-            skillBox[4].style.display = 'flex';
-            skillBox[5].style.display = 'flex';
-            skillBox[6].style.display = 'flex';
-            skillBox[7].style.display = 'none';
-            
-        } else if (skillSel.value === '8') {
-            skillBox.style.display = 'flex';
-        } else if (skillSel.value === '') {
-            skills.style.display = 'none';
-        } else{
-            return;
-        }
+    
 });
 
 
@@ -725,10 +620,12 @@ function downloadPdf() {
 
 
 btnBox[0].addEventListener('click', ()=>{
+    btnKey.click();
     downloadImg();
 });
 
 btnBox[1].addEventListener('click', ()=>{
+    btnKey.click();
     downloadPdf();
 });
 
