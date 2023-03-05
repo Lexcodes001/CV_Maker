@@ -1,25 +1,23 @@
-var imgArray = ['linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url(images/bg1.jpg)', 'linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url(images/bg2.jpg)', 'linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url(images/bg3.jpg)', 'linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url(images/bg4.jpg)', 'linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url(images/bg5.jpg)', 'linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url(images/bg6.jpg)'],
-imgIndex = 0,
-topDiv = document.querySelector('.top-div'),
-toolTip = document.querySelector('.tooltip');
-
-
-function changeImage() {
-    //body.setAttribute('src', imgArray[imgIndex]);
-    topDiv.style.background = imgArray[imgIndex];
-    topDiv.style.backgroundRepeat = 'no-repeat';
-    topDiv.style.backgroundSize = 'cover';
-    //topDiv.style.transition = 'background-image 1s ease';
-    imgIndex++;
-    if (imgIndex >= imgArray.length) {
-        imgIndex = 0;
-    }
-}
-
-setInterval(changeImage,5000);
+  var topDiv = document.querySelector('.top-div'), theme, currentTheme;
 
 var hiddenNav = document.querySelector('.hidden-nav'),
+    toolTip = document.querySelector('.tooltip'),
     closeBtn = document.querySelector('.close-btn');
+    
+const currentDate = new Date(), currentHour = currentDate.getHours();
+
+const themeToggle = document.querySelector('#toggle');
+
+currentTheme = localStorage.getItem("theme");
+  
+window.addEventListener('DOMContentLoaded', function(){
+    //alert(currentTheme);
+    if (currentTheme === "dark") {
+      themeToggle.click();
+    } else {
+      themeToggle.checked = false;
+    }
+});
     
 function openBtn(ind) {
     hiddenNav.classList.toggle('show');
@@ -39,47 +37,10 @@ window.onclick = (e) => {
   }
 }
 
-const currentDate = new Date(), currentHour = currentDate.getHours();
-
-window.onload = () => {
-    if(currentHour < 7) {
-        let ans = confirm("Good Morning dear❤️. Since it is still very early in the morning and it's still quite dark, do you wish to switch to the Dark theme?");
-        if (ans) {
-        themeToggle.click();
-        } else {
-        return;
-        }
-    }
-    
-    if(currentHour > 17) {
-        let ans = confirm('Good Evening dear❤️. Since it is getting dark, do you wish to switch to the Dark theme?');
-        if (ans) {
-        themeToggle.click();
-        } else {
-        return;
-        }
-    }
-}
-
-toolTip.style.transform = 'scale(0)';
-
-function closeTooltip() {
-    toolTip.style.transform = 'scale(0)';
-}
-
-function showTooltip() {
-    toolTip.style.transformOrigin = 'top left';
-    toolTip.style.transition = 'transform .5s ease';
-    toolTip.style.transform = 'scale(1)';
-    setTimeout(closeTooltip, 5000);
-}
-
-setTimeout(showTooltip, 5000);
-
-const themeToggle = document.querySelector('#toggle');
 themeToggle.addEventListener('click', () => {
-    themeToggle.classList.toggle('dark');
-    if (themeToggle.classList.contains('dark')) {
+  
+    if (themeToggle.checked) {
+        localStorage.setItem("theme", "dark");
         document.documentElement.style.setProperty('--bg1', '#1e1c29');
         document.documentElement.style.setProperty('--bg2', '#252836');
         document.documentElement.style.setProperty('--bg3', '#e9eaeb');
@@ -92,16 +53,20 @@ themeToggle.addEventListener('click', () => {
         document.documentElement.style.setProperty('--err-bg', '#f8d7da');
     }
     else {
+        localStorage.setItem("theme", "light");
         document.documentElement.style.setProperty('--bg1', '#e9eaeb');
         document.documentElement.style.setProperty('--bg2', '#fff');
         document.documentElement.style.setProperty('--bg3', '#1e1c29');
         document.documentElement.style.setProperty('--bg4', '#252836');
-        document.documentElement.style.setProperty('--header', '#777');
+        document.documentElement.style.setProperty('--header', '#666');
         document.documentElement.style.setProperty('--txt', '#999');
         document.documentElement.style.setProperty('--black', '#000');
-        document.documentElement.style.setProperty('--opaq', 'rgba(243, 246, 251, .5)');
+        document.documentElement.style.setProperty('--opaq', 'rgba(255, 255, 255, .5)');
         document.documentElement.style.setProperty('--err-txt', '#f8d7da');
         document.documentElement.style.setProperty('--err-bg', '#a42834');
     }
 });
 
+if (currentHour < 7 || currentHour > 17) {
+    themeToggle.click();
+  }

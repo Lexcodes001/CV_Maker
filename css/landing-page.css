@@ -4,18 +4,18 @@
 }
 
 :root{
-    --bg1: #e9eaeb;
+    --bg1: #E9EAEB;
     --bg2: #fff;
-    --bg3: #1e1c29;
+    --bg3: #1E1C29;
     --bg4: #252836;
-    --header: #777;
+    --header: #666;
     --txt: #999;
     --black: #000;
-    --blue: #a079ed;
-    --light-blue: #c4aaf9;
+    --blue: #1f2f98;
+    --light-blue: #2eaafa;
     --err-bg: #a42834;
     --err-txt: #f8d7da;
-    --opaq: rgba(243, 246, 251, .5);
+    --opaq: rgba(255, 255, 255, 0.5);
 }
 
 *{
@@ -110,22 +110,21 @@ i, .icon{
 
 .tooltip{
     width: fit-content;
+    font-size: 1rem;
     padding: .1rem .5rem;
-    color: var(--txt);
+    color: #E9EAEB  !important;
     position: fixed;
     top: 3rem;
     border-radius: 0 .7rem .7rem 0;
     z-index: 6;
+    transform: scale(0);
     background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
-    /*transform: scale(0);
-    transform-origin: top left;
-    transition: transform .5s ease-out;*/
 }
 
 .tooltip::after{
     content: "";
     position: absolute;
-    bottom: 100%;
+    bottom: 99%;
     left: 1rem;
     border-width: .5rem;
     border-style: solid;
@@ -139,6 +138,7 @@ i, .icon{
     flex-direction: column;
     gap: 0;
     position: fixed;
+    top: 3rem;
     width: 100%;
     height: auto;
     background-color: var(--opaq);
@@ -147,7 +147,6 @@ i, .icon{
     transform-origin: top left;
     transform: scale(0);
     padding: 0;
-    margin-top: 1rem;
     transition: all .3s ease-out;
 }
 
@@ -155,28 +154,22 @@ i, .icon{
     transform: scale(1);
 }
 
-.items{
+a.items{
+    width: 100%;
+    color: var(--black);
+    text-decoration: none;
     cursor: pointer;
     width: 100%;
-    padding: .5rem 10rem .5rem 2rem;
+    padding: 1rem 10rem 1rem 2rem;
+    margin: 0;
     border-bottom: 1px solid var(--header);
     transition: all .5s ease;
 }
 
-.items a{
-    color: var(--black);
-    text-decoration: none;
-}
-
-.items:hover, .item.click{
-    padding: .5rem 8rem .5rem 4rem;
-    align-self: center;
+a.items:hover, a.item.click{
+    padding: 1rem 8rem 1rem 4rem;
     color: var(--bg1);
     background-color: var(--header);
-}
-
-.items:hover a{
-    color: var(--bg1);
 }
 
 .ffw-item{
@@ -257,7 +250,7 @@ button:active{
 }
 
 .blue{
-    color: var(--blue);
+    color: var(--light-blue);
 }
 
 .flexbox{
@@ -359,12 +352,12 @@ button:active{
     color: var(--bg2);
     width: 30px;
     height: 30px;
-    background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
+    background-color: var(--light-blue);
     border: 1px solid var(--bg1);
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, .20);
     position: absolute;
-    top: -5px;
+    top: -4px;
     left: 0;
     display: grid;
     place-content: center;
@@ -377,7 +370,7 @@ input:checked + .button::after{
     font-size: 1.3rem;
     font-weight: bolder;
     content: url(../images/moon.png);
-    background-color: var(--blue);
+    background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--blue) 100%);
     transform: translateX(40px) rotate(360deg);
 }
 

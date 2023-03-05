@@ -22,6 +22,7 @@ let allInputs = document.getElementsByTagName('input'),
     ref2 = document.querySelector('.ref2'),
     ref3 = document.querySelector('.ref3'),
     cvTitle = document.querySelector('.top-box h2'),
+    formNavigationBtns = document.querySelectorAll('.btn-navigate-form-step'),
     genCvBtn = document.querySelector(".bttn"),
     cvContainer = document.querySelector('.cv-cont');
 
@@ -36,11 +37,19 @@ const contactItems = document.querySelectorAll('.contact .item'),
     refBox = document.querySelectorAll('.ref .box');
     
 function enableBtn() {
+  formNavigationBtns.forEach((btn) => {
+    btn.style.pointerEvents = 'auto';
+    btn.style.opacity = '1';
+  });
   genCvBtn.style.pointerEvents = 'auto';
   genCvBtn.style.opacity = '1';
 }
 
 function disableBtn() {
+  formNavigationBtns.forEach((btn) => {
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.5';
+  });
   genCvBtn.style.pointerEvents = 'none';
   genCvBtn.style.opacity = '0.5';
 }
@@ -49,8 +58,13 @@ for (let i = 0; i < allInputs.length; i++) {
     allInputs[i].addEventListener('keyup', function() {
         if (allInputs[i].value == '' || allInputs[i].value == null) {
             allInputs[i].nextElementSibling.style.display = 'block';
-            allInputs[i].nextElementSibling.innerHTML = 'Please fill out this field🥺';
-            disableBtn();
+            let isInputRequired = allInputs[i].hasAttribute('required');
+            if (isInputRequired) {
+              disableBtn();
+              allInputs[i].nextElementSibling.innerHTML = 'This is a required field!';
+            } else {
+              allInputs[i].nextElementSibling.innerHTML = 'Please fill out this field';
+            }
         } else{
             allInputs[i].nextElementSibling.style.display = 'none';
             allInputs[i].nextElementSibling.innerHTML = '';
@@ -64,8 +78,14 @@ for (let i = 0; i < allTextareas.length; i++) {
     allTextareas[i].addEventListener('keyup', function() {
         if (allTextareas[i].value == '' || allTextareas[i].value == null) {
             allTextareas[i].nextElementSibling.style.display = 'block';
-            allTextareas[i].nextElementSibling.innerHTML = 'Please fill out this field🥺';
-            disableBtn();
+            allTextareas[i].nextElementSibling.innerHTML = 'Please fill out this field';
+            let isTextareaRequired = allTextareas[i].hasAttribute('required');
+            if (isTextareaRequired) {
+              allTextareas[i].nextElementSibling.innerHTML = 'This is a required field!';
+              disableBtn();
+            } else {
+              allTextareas[i].nextElementSibling.innerHTML = 'Please fill out this field';
+            }
         } else{
             allTextareas[i].nextElementSibling.style.display = 'none';
             allTextareas[i].nextElementSibling.innerHTML = '';
@@ -233,9 +253,8 @@ refSel.addEventListener('change', () => {
 });
 
 var popupBox = document.querySelector(".popup-box"),
-previewBox = document.querySelector('.popup-preview-box'),
+previewBox = document.querySelector('.popup-preview'),
 prevPage = document.querySelector('.top-box i'),
-titleTag = popupBox.querySelector("#title"),
 firstName = popupBox.querySelector('#firstName'),
 lastName = popupBox.querySelector('#lastName'),
 profession = popupBox.querySelector('#profession'),
@@ -298,17 +317,15 @@ btnKeyIcon = document.querySelector('.btn-key i');
 
 
 prevPage.addEventListener("click", () => {
+    //alert('yaaaaaahhhhh!');
     window.location.reload();
 });
-
-genCvBtn.value = 'Generate CV';
 
 genCvBtn.addEventListener("click", e => {
     e.preventDefault();
     
     previewBox.classList.add('disp');
     popupBox.classList.add('hide');
-    titleTag = titleTag.value.trim();
     firstName = firstName.value.trim();
     lastName = lastName.value.trim().toUpperCase();
     profession = profession.value.trim().toUpperCase();
@@ -368,7 +385,7 @@ genCvBtn.addEventListener("click", e => {
     let cV = `<div class="cv-box flex column">
         <div class="top flex">
             <div class="left flex column">
-                <h1 class="name">${firstName.toUpperCase()}  ${lastName}<h1>
+                <h1 class="name">${firstName.toUpperCase()}  ${lastName}</h1>
                 <p>${profession}</p>
             </div>
             <div class="right flex column">
@@ -543,17 +560,13 @@ genCvBtn.addEventListener("click", e => {
         </div>
     </div>`;
     
-    if (titleTag == '') {
-        if(firstName == ''){
-            cvTitle.innerHTML = 'My Resume';
-        } else{
-            cvTitle.innerHTML = `${firstName}'s Resume`;
-        }
-    } else{
-        cvTitle.innerHTML = titleTag;
-    }
-    
     cvContainer.innerHTML = cV;
+    
+    if (firstName == '') {
+      cvTitle.innerHTML = 'My Resume';
+    } else {
+      cvTitle.innerHTML = `${firstName}'s Resume`;
+    }
     
     let cvSect = document.querySelectorAll('.sect');
     
@@ -600,6 +613,16 @@ btnKey.addEventListener('click', ()=>{
     btnBox[1].classList.toggle('disp');
 });
 
+btnBox[0].addEventListener('click', () => {
+  btnKey.click();
+  downloadImg();
+});
+
+btnBox[1].addEventListener('click', () => {
+  btnKey.click();
+  downloadPdf();
+});
+
 function downloadImg(){
 	html2canvas(cvContainer, {scale: quality}).then(
 		function (canvas){
@@ -614,35 +637,41 @@ function downloadImg(){
 	);
 }
 
-function downloadPdf() {
-    html2pdf().from(cvContainer).save();
+function downloadPdf(){
+  var printWindow = window.open('', '', 'height=400,width=800');
+  printWindow.document.write('<html><head><title>DIV Contents</title>');
+  printWindow.document.write('<link rel="stylesheet" href="css/cv.css">');
+  printWindow.document.write('</head><body>');
+  printWindow.document.write(cvContainer);
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+  printWindow.print();
 }
 
-
-btnBox[0].addEventListener('click', ()=>{
-    btnKey.click();
-    downloadImg();
-});
-
-btnBox[1].addEventListener('click', ()=>{
-    btnKey.click();
-    downloadPdf();
-});
-
-
-/*const qualityBtn = document.querySelectorAll(".quality button");
-const formatBtn = document.querySelectorAll(".format button");
-
-qualityBtn.forEach(btn => {
-    btn.addEventListener("click", function() { quality = btn.innerHTML; 
-        btn.classList.toggle('click');
-    });
-});
+/*
+        var cache_width = cvContainer.width(),  
+        a4 = [595.28, 841.89]; // for a4 size paper width and height  
+        
+        //create pdf  
+        function downloadPdf() {
+            getCanvas().then(function (canvas) {  
+                var img = canvas.toDataURL("image/png"),  
+                 doc = new jsPDF({  
+                     unit: 'px',  
+                     format: 'a4'  
+                 });  
+                doc.addImage(img, 'JPEG', 20, 20);  
+                doc.save('Bhavdip-html-to-pdf.pdf');  
+                cvContainer.width(cache_width);  
+            });  
+        }
   
-formatBtn.forEach(btn => {
-    btn.addEventListener("click", function() { format = btn.innerHTML; 
-        btn.classList.toggle('click');
-    });
-});
-*/
-
+        // create canvas object  
+        function getCanvas() {  
+            cvContainer.width((a4[0] * 1.33333) - 80).css('max-width', 'none');  
+            return html2canvas(cvContainer, {  
+                imageTimeout: 2000,  
+                removeContainer: true  
+            });  
+        }
+        */
